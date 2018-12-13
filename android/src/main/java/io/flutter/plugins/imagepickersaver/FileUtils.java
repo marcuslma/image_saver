@@ -17,7 +17,7 @@
  * https://raw.githubusercontent.com/iPaulPro/aFileChooser/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
  */
 
-package io.flutter.plugins.imagepickersaver;
+package io.flutter.plugins.imagesaver;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;

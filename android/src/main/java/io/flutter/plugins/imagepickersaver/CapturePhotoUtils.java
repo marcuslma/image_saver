@@ -1,4 +1,4 @@
-package io.flutter.plugins.imagepickersaver;
+package io.flutter.plugins.imagesaver;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
