@@ -15,7 +15,7 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
 
-public class ImagePickerSaverPlugin implements MethodChannel.MethodCallHandler {
+public class ImageSaverPlugin implements MethodChannel.MethodCallHandler {
     private static final String CHANNEL = "mastercarl.com/image_saver";
 
     private static final int SOURCE_CAMERA = 0;
@@ -37,12 +37,12 @@ public class ImagePickerSaverPlugin implements MethodChannel.MethodCallHandler {
         registrar.addActivityResultListener(delegate);
         registrar.addRequestPermissionsResultListener(delegate);
 
-        final ImagePickerSaverPlugin instance = new ImagePickerSaverPlugin(registrar, delegate);
+        final ImageSaverPlugin instance = new ImageSaverPlugin(registrar, delegate);
         channel.setMethodCallHandler(instance);
     }
 
     @VisibleForTesting
-    ImagePickerSaverPlugin(PluginRegistry.Registrar registrar, ImagePickerDelegate delegate) {
+    ImageSaverPlugin(PluginRegistry.Registrar registrar, ImagePickerDelegate delegate) {
         this.registrar = registrar;
         this.delegate = delegate;
     }

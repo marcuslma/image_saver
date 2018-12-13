@@ -9,7 +9,7 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-class ImagePickerSaver {
+class ImageSaver {
   static const MethodChannel _channel =
       MethodChannel('mastercarl.com/image_saver');
 

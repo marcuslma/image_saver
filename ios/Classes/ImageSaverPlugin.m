@@ -2,20 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#import "ImagePickerSaverPlugin.h"
+#import "ImageSaverPlugin.h"
 
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <Photos/Photos.h>
 #import <UIKit/UIKit.h>
 
 
-@interface FLTImagePickerSaverPlugin ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface FLTImageSaverPlugin ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @end
 
 static const int SOURCE_CAMERA = 0;
 static const int SOURCE_GALLERY = 1;
 
-@implementation FLTImagePickerSaverPlugin {
+@implementation FLTImageSaverPlugin {
     FlutterResult _result;
     NSDictionary *_arguments;
     UIImagePickerController *_imagePickerController;
@@ -28,8 +28,8 @@ static const int SOURCE_GALLERY = 1;
                                 binaryMessenger:[registrar messenger]];
     UIViewController *viewController =
     [UIApplication sharedApplication].delegate.window.rootViewController;
-    FLTImagePickerSaverPlugin *instance =
-    [[FLTImagePickerSaverPlugin alloc] initWithViewController:viewController];
+    FLTImageSaverPlugin *instance =
+    [[FLTImageSaverPlugin alloc] initWithViewController:viewController];
     [registrar addMethodCallDelegate:instance channel:channel];
 }
 

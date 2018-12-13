@@ -4,5 +4,5 @@
 
 #import <Flutter/Flutter.h>
 
-@interface FLTImagePickerSaverPlugin : NSObject<FlutterPlugin>
+@interface FLTImageSaverPlugin : NSObject<FlutterPlugin>
 @end
