@@ -9,15 +9,6 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-/// Specifies the source where the picked image should come from.
-enum ImageSource {
-  /// Opens up the device camera, letting the user to take a new picture.
-  camera,
-
-  /// Opens the user's photo gallery.
-  gallery,
-}
-
 class ImagePickerSaver {
   static const MethodChannel _channel =
       MethodChannel('mastercarl.com/image_saver');
