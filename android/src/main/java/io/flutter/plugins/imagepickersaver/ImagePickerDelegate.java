@@ -83,6 +83,8 @@ public class ImagePickerDelegate
     static final int REQUEST_EXTERNAL_VIDEO_STORAGE_PERMISSION = 2354;
     @VisibleForTesting
     static final int REQUEST_CAMERA_VIDEO_PERMISSION = 2355;
+    @VisibleForTesting
+    static final int REQUEST_SAVE_EXTERNAL_IMAGE_STORAGE_PERMISSION = 2356;
 
     @VisibleForTesting
     final String fileProviderName;
@@ -275,17 +277,18 @@ public class ImagePickerDelegate
 
         if (!permissionManager.isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             permissionManager.askForPermission(
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE, REQUEST_EXTERNAL_IMAGE_STORAGE_PERMISSION);
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE, REQUEST_SAVE_EXTERNAL_IMAGE_STORAGE_PERMISSION);
             return;
         }
+
+        saveImageToGallery();
+    }
+
+    // Version that continues the stored methodCall
+    private void saveImageToGallery() throws IOException {
         byte[] fileData = methodCall.argument("fileData");
-
-        //Bitmap bitmap = BitmapFactory.decodeByteArray(fileData, 0, fileData.length);
-
-        String filePath = CapturePhotoUtils.insertImage(activity.getContentResolver(), fileData, "Camera", "123");
-
+        String filePath = CapturePhotoUtils.insertImage(activity.getContentResolver(), fileData, "Camera", null);
         finishWithSuccess(filePath);
-
     }
 
     private void launchPickImageFromGalleryIntent() {
@@ -389,6 +392,16 @@ public class ImagePickerDelegate
             case REQUEST_CAMERA_VIDEO_PERMISSION:
                 if (permissionGranted) {
                     launchTakeVideoWithCameraIntent();
+                }
+                break;
+            case REQUEST_SAVE_EXTERNAL_IMAGE_STORAGE_PERMISSION:
+                if (permissionGranted)  {
+                    try {
+                        saveImageToGallery();
+                    } catch (IOException e) {
+                        finishWithError("saving_failed", e.getMessage());
+                        return false;
+                    }
                 }
                 break;
             default:

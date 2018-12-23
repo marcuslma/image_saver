@@ -44,7 +44,8 @@ public class CapturePhotoUtils {
         ContentValues values = new ContentValues();
         values.put(Images.Media.TITLE, title);
         values.put(Images.Media.DISPLAY_NAME, title);
-        values.put(Images.Media.DESCRIPTION, description);
+        if (description != null)
+            values.put(Images.Media.DESCRIPTION, description);
         values.put(Images.Media.MIME_TYPE, mimeType);
         // Add the date meta data to ensure the image is added at the front of the gallery
         values.put(Images.Media.DATE_ADDED, System.currentTimeMillis());
