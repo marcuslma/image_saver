@@ -13,7 +13,7 @@ public final class GeneratedPluginRegistrant {
     if (alreadyRegisteredWith(registry)) {
       return;
     }
-    ImagePickerSaverPlugin.registerWith(registry.registrarFor("io.flutter.plugins.imagesaver.ImageSaverPlugin"));
+    ImageSaverPlugin.registerWith(registry.registrarFor("io.flutter.plugins.imagesaver.ImageSaverPlugin"));
     PathProviderPlugin.registerWith(registry.registrarFor("io.flutter.plugins.pathprovider.PathProviderPlugin"));
     VideoPlayerPlugin.registerWith(registry.registrarFor("io.flutter.plugins.videoplayer.VideoPlayerPlugin"));
   }
