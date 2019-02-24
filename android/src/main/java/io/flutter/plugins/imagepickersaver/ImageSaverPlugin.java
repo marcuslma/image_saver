@@ -5,7 +5,7 @@
 package io.flutter.plugins.imagesaver;
 
 import android.os.Environment;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import java.io.File;
 import java.io.IOException;
