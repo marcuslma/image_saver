@@ -10,8 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class ImageSaver {
-  static const MethodChannel _channel =
-      MethodChannel('mastercarl.com/image_saver');
+  static const MethodChannel _channel = MethodChannel('mastercarl.com/image_saver');
 
   static Future<String> saveFile({@required Uint8List fileData}) async {
     assert(fileData != null);
@@ -24,9 +23,9 @@ class ImageSaver {
     );
     debugPrint("saved filePath:" + filePath);
     //process ios return filePath
-    if(filePath.startsWith("file://")){
-      filePath=filePath.replaceAll("file://", "");
+    if (filePath.startsWith("file://")) {
+      filePath = filePath.replaceAll("file://", "");
     }
-    return  filePath;
+    return filePath;
   }
 }
