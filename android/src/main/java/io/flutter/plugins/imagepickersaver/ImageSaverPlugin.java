@@ -5,7 +5,7 @@
 package io.flutter.plugins.imagesaver;
 
 import android.os.Environment;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,16 +54,12 @@ public class ImageSaverPlugin implements MethodChannel.MethodCallHandler {
             return;
         }
         if (call.method.equals("saveFile")) {
-
-
             try {
                 delegate.saveImageToGallery(call, result);
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new IllegalArgumentException(e);
             }
-
-
         } else {
             throw new IllegalArgumentException("Unknown method " + call.method);
         }

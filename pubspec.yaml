@@ -1,17 +1,12 @@
 name: image_saver
 description:
-  Image Saver plugin for Flutter
-  Android supported
-  IOS supported 8.0+
-  fork form package image_picker_saver
-  and removed image_picker functionality
-
+  Image Saver plugin for Flutter, based on image_picker_saver
 authors:
   - Aaron Ho <cnhefang@gmail.com>
   - Carl Gödecken
-
-homepage: https://github.com/cnhefang/image_picker_saver
-version: 0.1.0
+  
+homepage: https://github.com/serjlee/image_saver
+version: 1.0.0
 
 flutter:
   plugin:
